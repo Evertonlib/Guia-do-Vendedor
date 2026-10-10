@@ -6,7 +6,7 @@
   --bg:#f5f0e6; --band-b:#fffef9; --band-c:#e9e1d2;
   --text:#101411; --text-muted:#5f635f;
   --rule:rgba(16,20,17,.14); --rule-soft:rgba(16,20,17,.08);
-  --accent:#a77d0b; --accent-text:#8a6608; --accent-graphic:#e3b838;
+  --accent:#a77d0b; --accent-text:#8a6608; --accent-text-c:#7a5a06; --accent-graphic:#e3b838;
   --card:#fffef9; --card-border:rgba(16,20,17,.10);
   --field-bg:#fffef9;
   --ok:#2f6b45; --warn:#9a5b1f; --danger:#a32f2b; --neutral:#5f635f;
@@ -18,7 +18,7 @@
     --bg:#101411; --band-b:#0c0f0d; --band-c:#1a201c;
     --text:#fffef9; --text-muted:rgba(255,255,255,.64);
     --rule:rgba(255,255,255,.16); --rule-soft:rgba(255,255,255,.09);
-    --accent:#e3b838; --accent-text:#e3b838; --accent-graphic:#e3b838;
+    --accent:#e3b838; --accent-text:#e3b838; --accent-text-c:#e3b838; --accent-graphic:#e3b838;
     --card:#1a201c; --card-border:rgba(255,255,255,.12);
     --field-bg:rgba(255,255,255,.07);
     --ok:#5faa7c; --warn:#e2934a; --danger:#f0736d; --neutral:rgba(255,255,255,.64);
@@ -29,7 +29,7 @@
   --bg:#101411; --band-b:#0c0f0d; --band-c:#1a201c;
   --text:#fffef9; --text-muted:rgba(255,255,255,.64);
   --rule:rgba(255,255,255,.16); --rule-soft:rgba(255,255,255,.09);
-  --accent:#e3b838; --accent-text:#e3b838; --accent-graphic:#e3b838;
+  --accent:#e3b838; --accent-text:#e3b838; --accent-text-c:#e3b838; --accent-graphic:#e3b838;
   --card:#1a201c; --card-border:rgba(255,255,255,.12);
   --field-bg:rgba(255,255,255,.07);
   --ok:#5faa7c; --warn:#e2934a; --danger:#f0736d; --neutral:rgba(255,255,255,.64);
@@ -40,6 +40,8 @@
 body{background:var(--bg);color:var(--text);font-family:var(--font-body);-webkit-font-smoothing:antialiased;margin:0;line-height:1.6}
 :focus-visible{outline:3px solid var(--accent-graphic);outline-offset:4px}
 
+.brandbar{background:#101411;border-bottom:1px solid #e3b838;padding-block:14px;padding-inline:max(18px,50vw - 470px)}
+.brandbar img{display:block;height:44px;width:auto}
 .band{padding-block:clamp(48px,7vw,92px);padding-inline:max(18px,50vw - 470px);display:grid;gap:28px}
 .band-b{background:var(--band-b)}
 .band-c{background:var(--band-c)}
@@ -98,6 +100,7 @@ h2{font-size:clamp(28px,3.4vw,40px);letter-spacing:-.04em;line-height:1.08}
 .a dt{font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);padding-top:3px}
 .a dd{margin:0;font-size:14px;line-height:1.7;color:var(--text-muted)}
 .src{font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-text)}
+.band-c .src{color:var(--accent-text-c)}
 .novo{font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ok)}
 
 .foot{font-size:12px;color:var(--text-muted);line-height:1.7;max-width:70ch;margin:0}
@@ -112,9 +115,10 @@ h2{font-size:clamp(28px,3.4vw,40px);letter-spacing:-.04em;line-height:1.08}
 }
 </style>
 
+<div class="brandbar"><img src="logo.png" alt="By Arabi Planejados" width="106" height="44"></div>
+
 <header class="band">
   <div class="head">
-    <p class="eyebrow">By Arabi Planejados · Setor de Liberação Técnica</p>
     <h1>Dúvidas do <em>vendedor</em></h1>
     <p class="lede">Respostas rápidas para as perguntas que mais aparecem na hora de projetar e fechar uma venda. Cada item diz o que fazer, por que é assim e qual a alternativa dentro do padrão. Na dúvida, pergunte na fase de orçamento, antes de fechar.</p>
   </div>
