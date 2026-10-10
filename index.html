@@ -1,710 +1,562 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Guia do Vendedor — O que NÃO pode ser vendido</title>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Dúvidas do Vendedor</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600&family=Cormorant:ital,wght@0,500;1,500;1,600&family=Red+Hat+Display:wght@500;700;800&display=swap');
+/* Layout: faixas alternadas (papel → branco → papel fundo), FAQ em <details> nativo, como no site By Arabi */
+:root{
+  --bg:#f5f0e6; --band-b:#fffef9; --band-c:#e9e1d2;
+  --text:#101411; --text-muted:#5f635f;
+  --rule:rgba(16,20,17,.14); --rule-soft:rgba(16,20,17,.08);
+  --accent:#a77d0b; --accent-text:#8a6608; --accent-graphic:#e3b838;
+  --card:#fffef9; --card-border:rgba(16,20,17,.10);
+  --field-bg:#fffef9;
+  --ok:#2f6b45; --warn:#9a5b1f; --danger:#a32f2b; --neutral:#5f635f;
+  --font-display:Georgia,"Times New Roman",serif;
+  --font-body:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#101411; --band-b:#0c0f0d; --band-c:#1a201c;
+    --text:#fffef9; --text-muted:rgba(255,255,255,.64);
+    --rule:rgba(255,255,255,.16); --rule-soft:rgba(255,255,255,.09);
+    --accent:#e3b838; --accent-text:#e3b838; --accent-graphic:#e3b838;
+    --card:#1a201c; --card-border:rgba(255,255,255,.12);
+    --field-bg:rgba(255,255,255,.07);
+    --ok:#5faa7c; --warn:#e2934a; --danger:#f0736d; --neutral:rgba(255,255,255,.64);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#101411; --band-b:#0c0f0d; --band-c:#1a201c;
+  --text:#fffef9; --text-muted:rgba(255,255,255,.64);
+  --rule:rgba(255,255,255,.16); --rule-soft:rgba(255,255,255,.09);
+  --accent:#e3b838; --accent-text:#e3b838; --accent-graphic:#e3b838;
+  --card:#1a201c; --card-border:rgba(255,255,255,.12);
+  --field-bg:rgba(255,255,255,.07);
+  --ok:#5faa7c; --warn:#e2934a; --danger:#f0736d; --neutral:rgba(255,255,255,.64);
+  color-scheme:dark;
+}
 
-  :root {
-    --black: #0d0d0d;
-    --white: #f7f5f0;
-    --gold: #e9d49d;
-    --red: #d93025;
-    --red-light: #fde8e6;
-    --orange: #e8560a;
-    --orange-light: #fef0e6;
-    --yellow: #f5a623;
-    --yellow-light: #fef8e6;
-    --green: #1a7a4a;
-    --green-light: #e6f4ec;
-    --gray: #5c5c5c;
-    --border: #e0ddd8;
-    --bg: #f7f5f0;
-  }
+*,*::before,*::after{box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);-webkit-font-smoothing:antialiased;margin:0;line-height:1.6}
+:focus-visible{outline:3px solid var(--accent-graphic);outline-offset:4px}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+.band{padding-block:clamp(48px,7vw,92px);padding-inline:max(18px,50vw - 470px);display:grid;gap:28px}
+.band-b{background:var(--band-b)}
+.band-c{background:var(--band-c)}
 
-  html { scroll-behavior: smooth; }
+.eyebrow{color:var(--accent-text);letter-spacing:.18em;text-transform:uppercase;font-size:11px;font-weight:800;margin:0}
+h1,h2{font-family:var(--font-display);font-weight:400;text-wrap:balance;margin:0}
+h1{font-size:clamp(40px,6vw,68px);letter-spacing:-.05em;line-height:1}
+h1 em,h2 em{color:var(--accent);font-style:normal}
+h2{font-size:clamp(28px,3.4vw,40px);letter-spacing:-.04em;line-height:1.08}
+.lede{color:var(--text-muted);font-size:16px;line-height:1.75;max-width:62ch;margin:0}
+.head{display:grid;gap:12px}
+.count{font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted)}
 
-  body {
-    font-family: 'Barlow', sans-serif;
-    background: var(--bg);
-    color: var(--black);
-    font-size: 15px;
-    line-height: 1.6;
-  }
+/* etiqueta do tipo de resposta */
+.pill{display:inline-flex;align-items:center;gap:7px;border-radius:999px;padding:4px 11px;font-size:10.5px;font-weight:750;letter-spacing:.02em;border:1px solid;white-space:nowrap;line-height:1.4}
+.pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.p-nao{color:var(--danger)}
+.p-ciencia{color:var(--warn)}
+.p-sim{color:var(--ok)}
+.p-medida{color:var(--neutral)}
 
-  /* HEADER */
-  .header {
-    background: linear-gradient(135deg, #050505 0%, #111111 58%, #050505 100%);
-    color: var(--white);
-    padding: 0;
-    border-bottom: 4px solid var(--red);
-  }
-  .header-inner {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 54px 40px 42px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 32px;
-  }
-  .header-label {
-    font-family: 'Red Hat Display', sans-serif;
-    font-size: 12px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: rgba(233,212,157,0.9);
-    margin-bottom: 14px;
-  }
-  .header h1 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: clamp(36px, 6vw, 64px);
-    font-weight: 900;
-    line-height: 1;
-    text-transform: uppercase;
-  }
-  .header h1 span {
-    display: block;
-    color: var(--gold);
-    font-family: 'Red Hat Display', sans-serif;
-    font-size: 0.28em;
-    font-weight: 700;
-    letter-spacing: 4px;
-  }
-  .header-badge {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(233,212,157,0.32);
-    padding: 22px 30px;
-    text-align: center;
-    flex-shrink: 0;
-    border-radius: 12px;
-  }
-  .header-badge .num {
-    font-family: 'Cormorant', serif;
-    font-size: 64px;
-    font-style: italic;
-    font-weight: 600;
-    color: var(--gold);
-    line-height: 1;
-    display: block;
-  }
-  .header-badge small {
-    font-size: 11px;
-    color: rgba(255,255,255,0.72);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-family: 'Red Hat Display', sans-serif;
-    font-weight: 700;
-  }
-  .header-warning {
-    background: linear-gradient(90deg, #8d2118 0%, var(--red) 50%, #8d2118 100%);
-    border-top: 1px solid rgba(255,255,255,0.12);
-  }
-  .header-warning-inner {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 16px 40px;
-    font-size: 13px;
-    font-weight: 600;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    letter-spacing: 0.2px;
-  }
-  .header-warning-inner::before {
-    content: 'ALERTA';
-    font-family: 'Red Hat Display', sans-serif;
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    background: rgba(0,0,0,0.18);
-    border: 1px solid rgba(255,255,255,0.24);
-    border-radius: 999px;
-    padding: 6px 10px;
-    line-height: 1;
-  }
+/* busca */
+.search{display:grid;gap:6px;max-width:440px}
+.search label{font-size:11px;font-weight:750;color:var(--text-muted)}
+.search input{height:48px;border-radius:9px;padding:0 14px;width:100%;font:inherit;font-size:15px;background:var(--field-bg);border:1px solid var(--rule);color:var(--text);transition:border-color .15s,box-shadow .15s}
+.search input:focus{outline:none;border-color:var(--accent-graphic);box-shadow:0 0 0 3px rgba(227,184,56,.16)}
+.toolbar{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:end}
+.btn-text{background:none;border:1px solid var(--rule);color:var(--text);border-radius:999px;min-height:40px;padding:0 18px;font:inherit;font-size:12px;font-weight:800;letter-spacing:.03em;cursor:pointer;transition:transform .18s,border-color .18s}
+.btn-text:hover{border-color:var(--accent);transform:translateY(-2px)}
+.result{font-size:13px;color:var(--text-muted);min-height:1.6em;margin:0}
 
-  /* MAIN */
-  .main {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 40px 40px 80px;
-  }
+/* blocos em sanfona */
+.band[data-group]{padding-block:0}
+.block>summary{cursor:pointer;list-style:none;display:grid;grid-template-columns:1fr auto 28px;align-items:center;gap:14px;padding-block:clamp(22px,3vw,32px)}
+.block>summary::-webkit-details-marker{display:none}
+.block-title{font-family:var(--font-display);font-size:clamp(22px,3vw,30px);letter-spacing:-.03em;line-height:1.15}
+.block-count{font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);white-space:nowrap}
+.block>summary i{font-style:normal;color:var(--accent);justify-self:end;font-size:28px;font-weight:300;line-height:1;transition:transform .18s}
+.block[open]>summary i{transform:rotate(45deg)}
+.block-body{display:grid;gap:20px;padding-bottom:clamp(28px,4vw,48px)}
 
-  /* NAV PILLS */
-  .nav-pills {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-bottom: 48px;
-    padding-bottom: 24px;
-    border-bottom: 2px solid var(--black);
-  }
-  .pill {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 6px 14px;
-    border-radius: 100px;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    text-decoration: none;
-    cursor: pointer;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-  }
-  .pill:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.12); }
-  .pill-red { background: var(--red); color: #fff; }
-  .pill-orange { background: var(--orange); color: #fff; }
-  .pill-yellow { background: var(--yellow); color: var(--black); }
-  .pill-black { background: var(--black); color: #fff; }
+/* FAQ */
+.faq{border-top:1px solid var(--rule)}
+.faq details{border-bottom:1px solid var(--rule)}
+.faq summary{cursor:pointer;list-style:none;display:grid;grid-template-columns:1fr 28px;align-items:center;gap:18px;padding:18px 0}
+.faq summary::-webkit-details-marker{display:none}
+.q{display:grid;gap:8px;justify-items:start;min-width:0}
+.q-text{font-family:var(--font-display);font-size:clamp(17px,2vw,20px);line-height:1.3;letter-spacing:-.01em}
+.faq summary i{font-style:normal;color:var(--accent);justify-self:end;font-size:24px;font-weight:300;line-height:1;transition:transform .18s}
+.faq details[open] summary i{transform:rotate(45deg)}
+.a{display:grid;gap:12px;padding:0 46px 24px 0;max-width:68ch}
+.a p{margin:0;font-size:14.5px;line-height:1.7}
+.a .lead{font-weight:700}
+.a dl{margin:0;display:grid;gap:8px}
+.a dl div{display:grid;grid-template-columns:118px 1fr;gap:12px}
+.a dt{font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);padding-top:3px}
+.a dd{margin:0;font-size:14px;line-height:1.7;color:var(--text-muted)}
+.src{font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-text)}
+.novo{font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ok)}
 
-  /* SECTION */
-  .section { margin-bottom: 56px; }
+.foot{font-size:12px;color:var(--text-muted);line-height:1.7;max-width:70ch;margin:0}
+.empty{font-family:var(--font-display);font-size:20px;color:var(--text-muted);margin:0}
 
-  .section-header {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 20px;
-    padding-bottom: 16px;
-    border-bottom: 3px solid var(--black);
-  }
-  .section-icon {
-    width: 48px; height: 48px;
-    border-radius: 4px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 22px;
-    flex-shrink: 0;
-  }
-  .icon-red { background: var(--red); }
-  .icon-orange { background: var(--orange); }
-  .icon-yellow { background: var(--yellow); }
-  .icon-black { background: var(--black); }
-
-  .section-title {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 26px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    line-height: 1.1;
-  }
-  .section-count {
-    margin-left: auto;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 36px;
-    font-weight: 900;
-    color: var(--red);
-    line-height: 1;
-  }
-
-  /* ITEM CARDS */
-  .items { display: flex; flex-direction: column; gap: 12px; }
-
-  .item {
-    border: 1.5px solid var(--border);
-    border-radius: 6px;
-    overflow: hidden;
-    background: #fff;
-  }
-  .item-head {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    padding: 18px 20px;
-  }
-  .item-flag {
-    background: var(--red);
-    color: #fff;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 3px 8px;
-    border-radius: 2px;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-  .item-flag.orange { background: var(--orange); }
-  .item-flag.yellow { background: var(--yellow); color: var(--black); }
-  .item-flag.black { background: var(--black); }
-
-  .item-title {
-    font-weight: 700;
-    font-size: 15px;
-    line-height: 1.3;
-    flex: 1;
-  }
-
-  .item-body {
-    border-top: 1px solid var(--border);
-    padding: 14px 20px 14px 52px;
-    background: #fafaf8;
-  }
-  .item-why {
-    font-size: 13px;
-    color: var(--gray);
-    margin-bottom: 8px;
-  }
-  .item-why strong { color: var(--black); font-weight: 600; }
-  .item-alt {
-    font-size: 13px;
-    color: var(--green);
-    font-weight: 500;
-  }
-  .item-alt::before { content: '✓ Alternativa: '; font-weight: 700; }
-
-  /* GRID 2 col */
-  .items-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-  @media (max-width: 640px) { .items-grid { grid-template-columns: 1fr; } }
-
-  /* QUICK REFERENCE BOX */
-  .quick-ref {
-    background: var(--black);
-    color: var(--white);
-    padding: 40px;
-    border-radius: 8px;
-    margin-bottom: 48px;
-  }
-  .quick-ref h2 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 28px;
-    font-weight: 900;
-    text-transform: uppercase;
-    margin-bottom: 24px;
-    letter-spacing: 1px;
-  }
-  .quick-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-  }
-  @media (max-width: 640px) { .quick-list { grid-template-columns: 1fr; } }
-  .quick-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    font-size: 13px;
-    color: rgba(255,255,255,0.85);
-    padding: 8px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-  .quick-item::before {
-    content: '✕';
-    color: var(--red);
-    font-weight: 700;
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-
-  /* FOOTER */
-  .footer {
-    background: var(--black);
-    color: rgba(255,255,255,0.45);
-    text-align: center;
-    padding: 24px;
-    font-size: 12px;
-    letter-spacing: 1px;
-  }
-  .footer strong { color: var(--red); }
-
-  @media print {
-    .nav-pills { display: none; }
-    .item { break-inside: avoid; }
-  }
+@media (max-width:590px){
+  .a{padding-right:0}
+  .a dl div{grid-template-columns:1fr;gap:2px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:.01ms!important;animation:none!important}
+}
 </style>
-</head>
-<body>
 
-<!-- CABEÇALHO -->
-<div class="header">
-  <div class="header-inner">
-    <div class="header-text">
-      <div class="header-label">By Arabi — Setor de Liberação Técnica</div>
-      <h1>
-        O que NÃO
-        <span>pode ser vendido ou prometido</span>
-      </h1>
-    </div>
-    <div class="header-badge">
-      <span class="num">23</span>
-      <small>Restrições<br>catalogadas</small>
-    </div>
+<header class="band">
+  <div class="head">
+    <p class="eyebrow">By Arabi Planejados · Setor de Liberação Técnica</p>
+    <h1>Dúvidas do <em>vendedor</em></h1>
+    <p class="lede">Respostas rápidas para as perguntas que mais aparecem na hora de projetar e fechar uma venda. Cada item diz o que fazer, por que é assim e qual a alternativa dentro do padrão. Na dúvida, pergunte na fase de orçamento, antes de fechar.</p>
   </div>
-  <div class="header-warning">
-    <div class="header-warning-inner">
-      Documento extraído de casos reais de liberação técnica. Cada item aqui listado já gerou retrabalho, assistência ou conflito interno. Use como consulta antes de fechar qualquer proposta.
+  <div class="toolbar">
+    <div class="search">
+      <label for="busca">Buscar uma dúvida</label>
+      <input id="busca" type="search" placeholder="Ex.: cooktop, shaft, puxador, fundo" autocomplete="off">
     </div>
+    <button class="btn-text" id="toggle" type="button">Abrir todas</button>
   </div>
-</div>
+  <p class="result" id="result" aria-live="polite"></p>
+</header>
 
-<div class="main">
-
-  <!-- NAVEGAÇÃO RÁPIDA -->
-  <div class="nav-pills">
-    <a class="pill pill-red" href="#proibido">🚫 Proibido pela Direção</a>
-    <a class="pill pill-red" href="#negado">❌ Negado pela Liberação</a>
-    <a class="pill pill-orange" href="#naorecomendado">⚠ Não recomendado</a>
-    <a class="pill pill-black" href="#padroes">📐 Padrões obrigatórios</a>
-  </div>
-
-  <!-- CHEAT SHEET RÁPIDO -->
-  <div class="quick-ref">
-    <h2>⚡ Resumo Rápido — Os 23 NÃOs</h2>
-    <div class="quick-list">
-      <div class="quick-item">Venda com exclusão de puxadores</div>
-      <div class="quick-item">Base removível em armário</div>
-      <div class="quick-item"> portas basculantes menores q 300mm de altura</div>
-      <div class="quick-item">Perfuração de shaft (verificar construtora)</div>
-      <div class="quick-item">Módulo de canto "L" editável</div>
-      <div class="quick-item">Módulo de canto "L" em paredes fora de esquadro</div>
-      <div class="quick-item">Ripado sem painel estrutural de fundo</div>
-      <div class="quick-item">Caixarias com mistura de cores</div>
-      <div class="quick-item">Fundo de armário retirado em ilhas/áreas secas</div>
-      <div class="quick-item">Frontão com menos de 25mm de espessura</div>
-      <div class="quick-item">Avanços de paineis com menos de 25mm</div>
-      <div class="quick-item">Vão fora do min. e máx. depurador-cooktop</div>
-      <div class="quick-item">Fechamento lateral abaixo de 30mm</div>
-      <div class="quick-item">Exclusão de travessa estrutural de bancadas</div>
-      <div class="quick-item">fechamentos obstruindo duto de ventilação/aquecedor</div>
-      <div class="quick-item">Gaveta sob cooktop</div>
-      <div class="quick-item">Madeira rente ao piso em áreas molhadas (sem garantia)</div>
-      <div class="quick-item">Madeira abaixo de ar condicionado (sem garantia)</div>
-      <div class="quick-item">Cabideiro em roupeiro com profundidade abaixo do padrão</div>
-      <div class="quick-item">Cristaleira fora do modelo padrão aprovado</div>
-      <div class="quick-item">Nicho do micro-ondas posicionado conflitando com cuba</div>
-      <div class="quick-item">Medição e liberação com ambiente em obra inacabada</div>
-      <div class="quick-item">Suporte invisível em prateleira com LED ou prof. acima do limite</div>
+<section class="band band-b" data-group>
+  <details class="block">
+    <summary><span class="block-title">Antes de fechar a venda</span><span class="block-count"></span><i aria-hidden="true">+</i></summary>
+    <div class="block-body">
+    <div class="faq">
+      <details>
+        <summary><span class="q"><span class="q-text">O cliente ainda está em obra. Posso pedir a medição?</span></span><i aria-hidden="true">+</i></summary>
+        <div class="a">
+          <p><span class="pill p-nao">Não, aguarde a obra</span></p>
+          <p class="lead">Não. Medição e liberação com obra inacabada são recusadas.</p>
+          <dl>
+            <div><dt>Por quê</dt><dd>Com paredes sem revestimento, no tijolo ou sem reboco, ou pontos elétricos e hidráulicos não definidos, a medição sai imprecisa e o projeto pode não encaixar depois da obra.</dd></div>
+            <div><dt>Como fazer</dt><dd>Pergunte ao cliente como está a obra e peça fotos. Só solicite a medição, assine e prometa prazo depois que a obra terminar.</dd></div>
+          </dl>
+        </div>
+      </details>
+      <details>
+        <summary><span class="q"><span class="q-text">Posso fechar a venda sem puxador?</span></span><i aria-hidden="true">+</i></summary>
+        <div class="a">
+          <p><span class="pill p-nao">Não, defina antes</span></p>
+          <p class="lead">Não. É uma determinação da Direção, sem exceção.</p>
+          <dl>
+            <div><dt>Por quê</dt><dd>Puxador fora do padrão exige furações complexas que não são remuneradas ao montador e aumentam o risco de assistência.</dd></div>
+            <div><dt>Como fazer</dt><dd>Defina o puxador, ou outra solução de abertura do padrão aprovado, antes do fechamento.</dd></div>
+          </dl>
+        </div>
+      </details>
+      <details>
+        <summary><span class="q"><span class="q-text">Posso vender uma cristaleira personalizada?</span></span><i aria-hidden="true">+</i></summary>
+        <div class="a">
+          <p><span class="pill p-nao">Não, use o modelo aprovado</span></p>
+          <p class="lead">Só no modelo padrão aprovado.</p>
+          <dl>
+            <div><dt>Por quê</dt><dd>Cristaleiras fora do modelo não atendem aos critérios técnicos de fabricação e estabilidade.</dd></div>
+            <div><dt>Como fazer</dt><dd>Consulte a liberação para saber qual é o modelo aprovado antes de vender.</dd></div>
+          </dl>
+        </div>
+      </details>
+      <details>
+        <summary><span class="q"><span class="q-text">Posso misturar cores na mesma caixaria?</span></span><i aria-hidden="true">+</i></summary>
+        <div class="a">
+          <p><span class="pill p-nao">Não, uma cor por caixaria</span></p>
+          <p class="lead">Não. A caixaria fica toda em uma cor.</p>
+          <dl>
+            <div><dt>Por quê</dt><dd>A mistura dá a impressão de despadronização e foge do padrão da empresa.</dd></div>
+            <div><dt>Como fazer</dt><dd>Troque a caixaria completa para a cor desejada, sem mesclar acabamentos.</dd></div>
+          </dl>
+        </div>
+      </details>
     </div>
-  </div>
-
-  <!-- BLOCO 1: PROIBIDO PELA DIREÇÃO -->
-  <div class="section" id="proibido">
-    <div class="section-header">
-      <div class="section-icon icon-red">🚫</div>
-      <div>
-        <div class="section-title">Proibido pela Direção</div>
-        <div style="font-size:13px;color:var(--gray);">Determinação interna — sem exceções, sem negociação</div>
-      </div>
-      <div class="section-count">1</div>
     </div>
-    <div class="items">
+  </details>
+</section>
 
-      <div class="item">
-        <div class="item-head">
-          <span class="item-flag">Proibido</span>
-          <div class="item-title">Venda com exclusão de puxadores</div>
+<section class="band band-c" data-group>
+  <details class="block">
+    <summary><span class="block-title">Cozinha</span><span class="block-count"></span><i aria-hidden="true">+</i></summary>
+    <div class="block-body">
+    <div class="faq">
+      <details>
+        <summary><span class="q"><span class="q-text">Posso colocar gaveta embaixo do cooktop?</span></span><i aria-hidden="true">+</i></summary>
+        <div class="a">
+          <p><span class="pill p-nao">Não, use porta ou frente falsa</span></p>
+          <p class="lead">Não. Embaixo do cooktop vai porta basculante ou frente falsa.</p>
+          <dl>
+            <div><dt>Por quê</dt><dd>O cooktop tem um pino de gás profundo que ocupa o espaço da gaveta, com risco de dano e mau funcionamento dos dois.</dd></div>
+            <div><dt>Como fazer</dt><dd>Substitua a gaveta por porta basculante ou frente falsa.</dd></div>
+          </dl>
         </div>
-        <div class="item-body">
-          <div class="item-why"><strong>Por quê:</strong> Determinação da Direção. O comercial não deve fechar venda prevendo exclusão de puxadores, pois puxadores fora de padrão geram furações complexas não remuneradas ao montador, aumentando o risco de futuras assistências.</div>
-          <div class="item-alt">Definir puxador ou solução de abertura dentro do padrão pré aprovado antes do fechamento.</div>
+      </details>
+      <details>
+        <summary><span class="q"><span class="q-text">Qual a distância entre o depurador e o cooktop?</span></span><i aria-hidden="true">+</i></summary>
+        <div class="a">
+          <p><span class="pill p-medida">650 a 850 mm</span></p>
+          <p class="lead">Entre 650 mm e 850 mm.</p>
+          <dl>
+            <div><dt>Por quê</dt><dd>Abaixo de 650 mm prejudica a ergonomia. Acima de 850 mm o vapor se dispersa e o depurador perde eficiência.</dd></div>
+            <div><dt>Como fazer</dt><dd>Ajuste a altura dos armários superiores para ficar dentro da faixa.</dd></div>
+          </dl>
         </div>
-      </div>
-
+      </details>
+      <details>
+        <summary><span class="q"><span class="q-text">O nicho do micro-ondas pode ficar sobre a cuba?</span></span><i aria-hidden="true">+</i></summary>
+        <div class="a">
+          <p><span class="pill p-nao">Não, reposicione</span></p>
+          <p class="lead">Não, quando ele conflita com o uso da cuba.</p>
+          <dl>
+            <div><dt>Por quê</dt><dd>Atrapalha o uso da cuba e pode gerar conflito de instalação, problema de ergonomia e acidentes.</dd></div>
+            <div><dt>Como fazer</dt><dd>Reposicione o nicho ou reveja a composição antes de vender.</dd></div>
+          </dl>
+        </div>
+      </details>
+      <details>
+        <summary><span class="q"><span class="q-text">Quando posso tirar o fundo do armário?</span></span><i aria-hidden="true">+</i></summary>
+        <div class="a">
+          <p><span class="pill p-sim">Só em área molhada</span></p>
+          <p class="lead">Só em área molhada, no balcão com ponto hidráulico. Em ilhas e áreas secas o fundo fica.</p>
+          <dl>
+            <div><dt>Por quê</dt><dd>Na área molhada a retirada ajuda a ventilação e o acesso à hidráulica. Fora dela, a cava do fundo fica aparente e já gerou reclamação de cliente.</dd></div>
+            <div><dt>Como fazer</dt><dd>Mantenha o fundo em ilhas e áreas secas. Em área molhada, peça a remoção com a justificativa técnica.</dd></div>
+          </dl>
+        </div>
+      </details>
+      <details>
+        <summary><span class="q"><span class="q-text">Posso tirar a travessa da bancada para caber uma gaveta?</span></span><i aria-hidden="true">+</i></summary>
+        <div class="a">
+          <p><span class="pill p-nao">Não, ela é estrutural</span></p>
+          <p class="lead">Não. A travessa dá rigidez e estabilidade à bancada.</p>
+          <dl>
+            <div><dt>Como fazer</dt><dd>Mantenha a travessa e adapte a gaveta ou o acessório ao espaço disponível.</dd></div>
+          </dl>
+        </div>
+      </details>
+      <details>
+        <summary><span class="q"><span class="q-text">Posso fechar o espaço do duto de ventilação ou do aquecedor?</span></span><i aria-hidden="true">+</i></summary>
+        <div class="a">
+          <p><span class="pill p-nao">Não, deixe a passagem livre</span></p>
+          <p class="lead">Não. A passagem do duto precisa ficar livre.</p>
+          <dl>
+            <div><dt>Por quê</dt><dd>Obstruir o duto prejudica a ventilação e a manutenção do equipamento, com risco de mau funcionamento e problema de segurança.</dd></div>
+            <div><dt>Como fazer</dt><dd>Replaneje o fechamento do ambiente. Em móvel com aquecedor, envie sempre a planta hidráulica.</dd></div>
+          </dl>
+        </div>
+      </details>
     </div>
-  </div>
-
-  <!-- BLOCO 2: NEGADO PELA LIBERAÇÃO -->
-  <div class="section" id="negado">
-    <div class="section-header">
-      <div class="section-icon icon-red">❌</div>
-      <div>
-        <div class="section-title">Negado pelo Setor de Liberação</div>
-        <div style="font-size:13px;color:var(--gray);">Itens que chegam à liberação e são sistematicamente reprovados</div>
-      </div>
-      <div class="section-count">13</div>
     </div>
-    <div class="items">
+  </details>
+</section>
 
-      <div class="item">
-        <div class="item-head">
-          <span class="item-flag black">Negado</span>
-          <div class="item-title">Base removível em armário</div>
+<section class="band band-b" data-group>
+  <details class="block">
+    <summary><span class="block-title">Módulos e estrutura</span><span class="block-count"></span><i aria-hidden="true">+</i></summary>
+    <div class="block-body">
+    <div class="faq">
+      <details>
+        <summary><span class="q"><span class="q-text">Posso vender armário com base removível?</span></span><i aria-hidden="true">+</i></summary>
+        <div class="a">
+          <p><span class="pill p-nao">Não, use base fixa</span></p>
+          <p class="lead">Não. O armário é sempre projetado com base fixa.</p>
+          <dl>
+            <div><dt>Por quê</dt><dd>A base removível compromete a estabilidade. Com peso ou movimentação, aumenta o risco de tombamento e o desgaste dos encaixes. É item de segurança.</dd></div>
+            <div><dt>Como fazer</dt><dd>Projete com base fixa. Uma aprovação anterior não vale como precedente.</dd></div>
+          </dl>
         </div>
-        <div class="item-body">
-          <div class="item-why"><strong>Por quê:</strong> Compromete a estabilidade estrutural do móvel. Com movimentação ou peso, aumenta risco de tombamento e desgaste nos encaixes. Item de segurança não negociável.</div>
-          <div class="item-alt">Projetar sempre com base fixa. Aprovação anterior não é precedente válido.</div>
+      </details>
+      <details>
+        <summary><span class="q"><span class="q-text">Posso usar módulo de canto "L" editável?</span></span><i aria-hidden="true">+</i></summary>
+        <div class="a">
+          <p><span class="pill p-sim">Sim, com painéis especiais</span></p>
+          <p class="novo">Atualizado</p>
+          <p class="lead">Sim, desde que a base e a prateleira sejam vendidas em painéis especiais.</p>
+          <dl>
+            <div><dt>Por quê</dt><dd>Painéis especiais são pedidos à fábrica já no formato necessário (até formatos como nuvem). Assim as peças chegam prontas e o montador não precisa criá-las no local, o que seria serviço de marcenaria fora do escopo da montagem.</dd></div>
+            <div><dt>Como fazer</dt><dd>Venda a base e a prateleira montadas com painéis especiais. Sem eles, mantenha o módulo íntegro e adapte o projeto ao espaço.</dd></div>
+          </dl>
         </div>
-      </div>
-
-      <div class="item">
-        <div class="item-head">
-          <span class="item-flag black">Negado</span>
-          <div class="item-title">Portas basculantes menores que 300mm de altura</div>
+      </details>
+      <details>
+        <summary><span class="q"><span class="q-text">E se a parede do canto estiver fora de esquadro?</span></span><i aria-hidden="true">+</i></summary>
+        <div class="a">
+          <p><span class="pill p-nao">Não, use canto reto</span></p>
+          <p class="lead">Aí o canto "L" não serve.</p>
+          <dl>
+            <div><dt>Por quê</dt><dd>Em parede fora de esquadro o módulo desalinha e gera problema na montagem.</dd></div>
+            <div><dt>Como fazer</dt><dd>Use módulo de canto reto ou consulte a liberação para uma alternativa compatível.</dd></div>
+          </dl>
         </div>
-        <div class="item-body">
-          <div class="item-why"><strong>Por quê:</strong> Abaixo dessa medida o funcionamento e a aplicação dos pistões não é possivel, com risco de mau desempenho e acidentes.</div>
-          <div class="item-alt">Respeitar a altura mínima de 300mm ou adotar outra solução de abertura aprovada.</div>
+      </details>
+      <details>
+        <summary><span class="q"><span class="q-text">Posso instalar ripado direto na parede?</span></span><i aria-hidden="true">+</i></summary>
+        <div class="a">
+          <p><span class="pill p-sim">Sim, com painel de fundo</span></p>
+          <p class="lead">Não direto na parede. O ripado vai sempre sobre um painel estrutural de fundo.</p>
+          <dl>
+            <div><dt>Por quê</dt><dd>O ripado precisa de um painel de apoio para ficar bem fixado. Direto na parede, mesmo com tinta especial, não há garantia de estabilidade e durabilidade.</dd></div>
+            <div><dt>Como fazer</dt><dd>Inclua o painel estrutural de fundo na venda do ripado.</dd></div>
+          </dl>
         </div>
-      </div>
-
-      <div class="item">
-        <div class="item-head">
-          <span class="item-flag black">Negado</span>
-          <div class="item-title">Módulo de canto "L" editável</div>
+      </details>
+      <details>
+        <summary><span class="q"><span class="q-text">Qual a altura mínima da porta basculante?</span></span><i aria-hidden="true">+</i></summary>
+        <div class="a">
+          <p><span class="pill p-medida">Mínimo 300 mm</span></p>
+          <p class="lead">300 mm de altura.</p>
+          <dl>
+            <div><dt>Por quê</dt><dd>Abaixo disso não é possível aplicar os pistões, com risco de mau funcionamento e acidente.</dd></div>
+            <div><dt>Como fazer</dt><dd>Respeite a altura mínima ou use outra solução de abertura aprovada.</dd></div>
+          </dl>
         </div>
-        <div class="item-body">
-          <div class="item-why"><strong>Por quê:</strong> Módulos deste tipo exigem "criações" das peças in loco, serviços esse de marcenaria, ultrapassando o escopo técnico e a remuneração da montagem.</div>
-          <div class="item-alt">Manter o módulo íntegro. Adaptar o projeto ao espaço disponível, não o módulo ao espaço.</div>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-head">
-          <span class="item-flag black">Negado</span>
-          <div class="item-title">Módulo de canto "L" em paredes fora de esquadro</div>
-        </div>
-        <div class="item-body">
-          <div class="item-why"><strong>Por quê:</strong> Utilizar este item parede fora de esquadro gera desalinhamento e problemas de montagem.</div>
-          <div class="item-alt">Utilizar módulos de canto reto ou consultar a liberação para alternativa compatível.</div>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-head">
-          <span class="item-flag black">Negado</span>
-          <div class="item-title">Ripado sem painel estrutural de fundo</div>
-        </div>
-        <div class="item-body">
-          <div class="item-why"><strong>Por quê:</strong> O ripado exige painel de apoio para fixação segura. Instalação direta na parede — mesmo com tinta especial — não garante estabilidade e durabilidade.</div>
-          <div class="item-alt">Ripado sempre acompanhado de painel estrutural de fundo.</div>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-head">
-          <span class="item-flag black">Negado</span>
-          <div class="item-title">Nicho do micro-ondas posicionado conflitando com cuba</div>
-        </div>
-        <div class="item-body">
-          <div class="item-why"><strong>Por quê:</strong> O posicionamento compromete o uso da cuba e pode gerar conflito de instalação, ergonomia e acidentes no ambiente.</div>
-          <div class="item-alt">Reposicionar o nicho ou rever a composição antes de vender.</div>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-head">
-          <span class="item-flag black">Negado</span>
-          <div class="item-title">Fechamentos obstruindo duto de ventilação/aquecedor</div>
-        </div>
-        <div class="item-body">
-          <div class="item-why"><strong>Por quê:</strong> Obstruir dutos compromete a ventilação e manutenção do equipamento e pode gerar risco técnico, mau funcionamento e problema de segurança.</div>
-          <div class="item-alt">Manter a passagem livre e replanejar o fechamento do ambiente.</div>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-head">
-          <span class="item-flag black">Negado</span>
-          <div class="item-title">Caixarias com mistura de cores</div>
-        </div>
-        <div class="item-body">
-          <div class="item-why"><strong>Por quê:</strong> Mistura de cores na mesma caixaria pode gerar a percepção visual de despadronização não atendendo os padrões da empresa.</div>
-          <div class="item-alt">Trocar a caixaria completa para a cor desejada, sem mesclar acabamentos.</div>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-head">
-          <span class="item-flag black">Negado</span>
-          <div class="item-title">Fundo de armário retirado em ilhas/áreas secas</div>
-        </div>
-        <div class="item-body">
-          <div class="item-why"><strong>Por quê:</strong> Fundos só são retirados em áreas molhadas (facilitar ventilação e acesso à hidráulica). Ilhas e ambientes secos não se enquadram.</div>
-          <div class="item-alt">Manter fundo em ilhas. Em áreas molhadas, solicitar remoção com justificativa técnica.</div>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-head">
-          <span class="item-flag black">Negado</span>
-          <div class="item-title">Gaveta sob cooktop</div>
-        </div>
-        <div class="item-body">
-          <div class="item-why"><strong>Por quê:</strong> O cooktop possui pino de gás profundo embaixo que inviabiliza gaveta no espaço — risco de dano e mau funcionamento de ambos.</div>
-          <div class="item-alt">Substituir gaveta por porta basculante ou frente falsa sob o cooktop.</div>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-head">
-          <span class="item-flag black">Negado</span>
-          <div class="item-title">Fechamento lateral abaixo de 30mm</div>
-        </div>
-        <div class="item-body">
-          <div class="item-why"><strong>Por quê:</strong> O vão mínimo é necessário para evitar armário rente à parede impeça sua abertura total devido os puxadores colidirem com a parede e exluindo margens de segurança em caso de variações na medição.</div>
-          <div class="item-alt">Manter fechamento lateral mínimo de 30mm. Recalcular largura do projeto se necessário.</div>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-head">
-          <span class="item-flag black">Negado</span>
-          <div class="item-title">Exclusão de travessa estrutural de bancadas</div>
-        </div>
-        <div class="item-body">
-          <div class="item-why"><strong>Por quê:</strong> A travessa é componente essencial para rigidez e estabilidade. Não pode ser suprimida.</div>
-          <div class="item-alt">Manter travessa estrutural. Adaptar projeto de gaveta ou acessório ao espaço disponível.</div>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-head">
-          <span class="item-flag black">Negado</span>
-          <div class="item-title">Cristaleira fora do modelo padrão aprovado</div>
-        </div>
-        <div class="item-body">
-          <div class="item-why"><strong>Por quê:</strong> Cristaleiras customizadas fora do modelo padrão não atendem aos critérios técnicos de fabricação e estabilidade.</div>
-          <div class="item-alt">Consultar a liberação para o modelo correto aprovado antes de vender.</div>
-        </div>
-      </div>
-
+      </details>
     </div>
-  </div>
-
-  <!-- BLOCO 3: NÃO RECOMENDADO / SEM GARANTIA -->
-  <div class="section" id="naorecomendado">
-    <div class="section-header">
-      <div class="section-icon icon-orange">⚠</div>
-      <div>
-        <div class="section-title">Não recomendado — Sem Garantia</div>
-        <div style="font-size:13px;color:var(--gray);">Pode ser feito mediante ciência formal assinada pelo cliente. O ônus é do comercial.</div>
-      </div>
-      <div class="section-count">5</div>
     </div>
-    <div class="items">
+  </details>
+</section>
 
-      <div class="item">
-        <div class="item-head">
-          <span class="item-flag orange">Sem garantia</span>
-          <div class="item-title">Madeira rente ao piso em áreas molhadas (sem garantia)</div>
+<section class="band band-c" data-group>
+  <details class="block">
+    <summary><span class="block-title">Medidas mínimas</span><span class="block-count"></span><i aria-hidden="true">+</i></summary>
+    <div class="block-body">
+    <div class="faq">
+      <details>
+        <summary><span class="q"><span class="q-text">Qual a espessura mínima do frontão?</span></span><i aria-hidden="true">+</i></summary>
+        <div class="a">
+          <p><span class="pill p-medida">Mínimo 25 mm</span></p>
+          <p class="lead">25 mm.</p>
+          <dl>
+            <div><dt>Por quê</dt><dd>Abaixo disso o frontão não cobre direito as irregularidades da parede.</dd></div>
+          </dl>
         </div>
-        <div class="item-body">
-          <div class="item-why"><strong>Por quê:</strong> Contato direto com umidade causa inchamento, degradação e danos irreversíveis ao material. Não há cobertura de garantia após instalação.</div>
-          <div class="item-alt">Usar sapata niveladora ou elevar o móvel. Documentar ciência do cliente formalmente.</div>
+      </details>
+      <details>
+        <summary><span class="q"><span class="q-text">Qual o avanço mínimo de um painel?</span></span><i aria-hidden="true">+</i></summary>
+        <div class="a">
+          <p><span class="pill p-medida">Mínimo 25 mm</span></p>
+          <p class="lead">25 mm.</p>
+          <dl>
+            <div><dt>Por quê</dt><dd>Com menos que isso o avanço não atende ao padrão técnico e o acabamento fica comprometido.</dd></div>
+          </dl>
         </div>
-      </div>
-
-      <div class="item">
-        <div class="item-head">
-          <span class="item-flag orange">Sem garantia</span>
-          <div class="item-title">Madeira abaixo de ar condicionado (sem garantia)</div>
+      </details>
+      <details>
+        <summary><span class="q"><span class="q-text">Qual o fechamento lateral mínimo junto à parede?</span></span><i aria-hidden="true">+</i></summary>
+        <div class="a">
+          <p><span class="pill p-medida">Mínimo 30 mm</span></p>
+          <p class="lead">30 mm.</p>
+          <dl>
+            <div><dt>Por quê</dt><dd>Sem esse vão, o puxador bate na parede e a porta não abre totalmente. O vão também dá margem para variações de medição.</dd></div>
+            <div><dt>Como fazer</dt><dd>Recalcule a largura do projeto se for preciso para manter os 30 mm.</dd></div>
+          </dl>
         </div>
-        <div class="item-body">
-          <div class="item-why"><strong>Por quê:</strong> Risco de danos por gotejamento e variação de temperatura. Não há cobertura de garantia para os itens afetados.</div>
-          <div class="item-alt">Reposicionar o móvel ou o aparelho. Se inviável, documentar ciência do cliente.</div>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-head">
-          <span class="item-flag orange">Sem garantia</span>
-          <div class="item-title">Cabideiro em roupeiro com profundidade abaixo do padrão</div>
-        </div>
-        <div class="item-body">
-          <div class="item-why"><strong>Por quê:</strong> Profundidade insuficiente resulta em mau posicionamento das roupas, dificuldade de acesso e amassamento. Não segue o padrão By Arabi.</div>
-          <div class="item-alt">Respeitar profundidade padrão para roupeiros com cabideiro. Se cliente insistir, documentar ciência.</div>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-head">
-          <span class="item-flag orange">Sem garantia</span>
-          <div class="item-title">Suporte invisível em prateleira com LED ou prof. acima do limite</div>
-        </div>
-        <div class="item-body">
-          <div class="item-why"><strong>Por quê:</strong> Suporte invisível inviabiliza a instalação elétrica do LED e também possui limite técnico de profundidade e carga, com risco de quebra ou deformação.</div>
-          <div class="item-alt">Usar suporte convencional quando houver LED. Suporte invisível só em prateleiras sem iluminação e dentro do limite de profundidade.</div>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-head">
-          <span class="item-flag orange">Sem garantia</span>
-          <div class="item-title">Perfuração de shaft (verificar construtora)</div>
-        </div>
-        <div class="item-body">
-          <div class="item-why"><strong>Por quê:</strong> Não é prática recomendada. Muitos prédios proíbem perfuração no shaft. Cliente deve respeitar cláusulas 3.10 e 3.11 do contrato.</div>
-          <div class="item-alt">Verificar na planta hidráulica da construtora se o prédio permite. Se sim, verificaremos viabilidade técnica e redução de risco. Se não viável, replanejar o ambiente.</div>
-        </div>
-      </div>
-
+      </details>
     </div>
-  </div>
-
-  <!-- BLOCO 4: PADRÕES OBRIGATÓRIOS -->
-  <div class="section" id="padroes">
-    <div class="section-header">
-      <div class="section-icon icon-black">📐</div>
-      <div>
-        <div class="section-title">Padrões Técnicos Obrigatórios</div>
-        <div style="font-size:13px;color:var(--gray);">Dimensões e especificações que não podem ser alteradas sem aprovação técnica</div>
-      </div>
-      <div class="section-count">3</div>
     </div>
-    <div class="items items-grid">
+  </details>
+</section>
 
-      <div class="item">
-        <div class="item-head">
-          <span class="item-flag black">Padrão</span>
-          <div class="item-title">Frontão com menos de 25mm de espessura</div>
+<section class="band band-b" data-group>
+  <details class="block">
+    <summary><span class="block-title">Roupeiro e prateleiras</span><span class="block-count"></span><i aria-hidden="true">+</i></summary>
+    <div class="block-body">
+    <div class="faq">
+      <details>
+        <summary><span class="q"><span class="q-text">Posso pôr cabideiro em roupeiro com profundidade menor que o padrão?</span></span><i aria-hidden="true">+</i></summary>
+        <div class="a">
+          <p><span class="pill p-ciencia">Só com ciência do cliente</span></p>
+          <p class="lead">O recomendado é manter a profundidade padrão. Abaixo dela, o item fica sem garantia.</p>
+          <dl>
+            <div><dt>Por quê</dt><dd>Com pouca profundidade, as roupas ficam mal posicionadas, amassam e o acesso fica difícil.</dd></div>
+            <div><dt>Como fazer</dt><dd>Respeite a profundidade padrão. Se o cliente insistir, registre a ciência formal assinada por ele.</dd></div>
+          </dl>
         </div>
-        <div class="item-body">
-          <div class="item-why">Abaixo de 25mm não cobre corretamente as irregularidades da parede. Padrão mínimo obrigatório: 25mm.</div>
+      </details>
+      <details>
+        <summary><span class="q"><span class="q-text">Posso usar suporte invisível em prateleira com LED?</span></span><i aria-hidden="true">+</i></summary>
+        <div class="a">
+          <p><span class="pill p-sim">Sim, com LED sobreposto</span></p>
+          <p class="lead">Sim, se a canaleta de LED for sobreposta. Com canaleta usinada na madeira, não.</p>
+          <dl>
+            <div><dt>Por quê</dt><dd>O suporte invisível também entra dentro da madeira. O furo pede 15 mm, o pino tem 12 mm e a canaleta usinada fica com recuo de 10 mm, quase no meio da prateleira. O pino chega até a canaleta e colide com ela.</dd></div>
+            <div><dt>Como fazer</dt><dd>Com canaleta sobreposta (colada com fita dupla face), use o suporte invisível dentro do limite de profundidade e carga. Com canaleta usinada, use suporte convencional, tucano ou pelicano.</dd></div>
+          </dl>
         </div>
-      </div>
-
-      <div class="item">
-        <div class="item-head">
-          <span class="item-flag black">Padrão</span>
-          <div class="item-title">Avanços de paineis com menos de 25mm</div>
-        </div>
-        <div class="item-body">
-          <div class="item-why">Abaixo de 25mm o avanço do painel não atende ao padrão técnico e compromete o acabamento.</div>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-head">
-          <span class="item-flag black">Padrão</span>
-          <div class="item-title">Vão min. e máx. depurador-cooktop: 650mm - 850mm</div>
-        </div>
-        <div class="item-body">
-          <div class="item-why">Abaixo de 650mm compromete a ergonomia; acima de 850mm a dispersão dos vapores reduz a eficiência. Ajustar altura dos armários superiores.</div>
-        </div>
-      </div>
-
+      </details>
     </div>
-  </div>
-
-  <!-- BLOCO 5: REGRA DE OURO -->
-  <div style="background:var(--red);color:#fff;padding:40px;border-radius:8px;margin-bottom:48px;">
-    <div style="font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:12px;">Regra de Ouro do Comercial</div>
-    <div style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(22px,4vw,36px);font-weight:800;line-height:1.2;margin-bottom:20px;">
-      Ambiente em obra inacabada = NÃO solicite a medição.
     </div>
-    <div style="font-size:14px;color:rgba(255,255,255,0.85);max-width:640px;line-height:1.7;">
-      Se o cliente ainda tem obra em andamento (paredes sem revestimento, no tijolo ou sem reboco, pontos elétricos/hidráulicos não definidos), <strong>não assine, não prometa e não peça a liberação</strong>. A medição será imprecisa, o projeto poderá não encaixar após a obra e qualquer problema pós-montagem gera ônus a empresa.
+  </details>
+</section>
+
+<section class="band band-c" data-group>
+  <details class="block">
+    <summary><span class="block-title">Umidade, clima e prédio</span><span class="block-count"></span><i aria-hidden="true">+</i></summary>
+    <div class="block-body">
+    <div class="faq">
+      <details>
+        <summary><span class="q"><span class="q-text">O móvel pode ficar rente ao piso em área molhada?</span></span><i aria-hidden="true">+</i></summary>
+        <div class="a">
+          <p><span class="pill p-ciencia">Só com ciência do cliente</span></p>
+          <p class="lead">Pode, mas sem garantia.</p>
+          <dl>
+            <div><dt>Por quê</dt><dd>O contato com a umidade incha e degrada o material, com dano irreversível.</dd></div>
+            <div><dt>Como fazer</dt><dd>Prefira sapata niveladora ou eleve o móvel. Se o cliente mantiver, registre a ciência formal. O ônus é do comercial.</dd></div>
+          </dl>
+        </div>
+      </details>
+      <details>
+        <summary><span class="q"><span class="q-text">Posso colocar móvel embaixo do ar-condicionado?</span></span><i aria-hidden="true">+</i></summary>
+        <div class="a">
+          <p><span class="pill p-ciencia">Só com ciência do cliente</span></p>
+          <p class="lead">Pode, mas os itens afetados ficam sem garantia.</p>
+          <dl>
+            <div><dt>Por quê</dt><dd>Há risco de dano por gotejamento e variação de temperatura.</dd></div>
+            <div><dt>Como fazer</dt><dd>Reposicione o móvel ou o aparelho. Se não for possível, registre a ciência do cliente.</dd></div>
+          </dl>
+        </div>
+      </details>
+      <details>
+        <summary><span class="q"><span class="q-text">Posso furar o shaft?</span></span><i aria-hidden="true">+</i></summary>
+        <div class="a">
+          <p><span class="pill p-ciencia">Consulte a planta antes</span></p>
+          <p class="lead">Não é recomendado, e muitos prédios proíbem.</p>
+          <dl>
+            <div><dt>Por quê</dt><dd>O cliente precisa respeitar as cláusulas 3.10 e 3.11 do contrato.</dd></div>
+            <div><dt>Como fazer</dt><dd>Confira na planta hidráulica da construtora se o prédio permite. Se permitir, a liberação avalia a viabilidade e a redução de risco. Se não, replaneje o ambiente. Balcão sobre shaft de gesso vai com pés.</dd></div>
+          </dl>
+        </div>
+      </details>
     </div>
-  </div>
+    </div>
+  </details>
+</section>
 
-</div>
+<section class="band band-b" data-group>
+  <details class="block">
+    <summary><span class="block-title">Perguntas das lojas</span><span class="block-count"></span><i aria-hidden="true">+</i></summary>
+    <div class="block-body">
+    <p class="lede">Perguntas feitas pelas equipes de venda. Esta seção cresce a cada treinamento.</p>
+    <div class="faq">
+      <details>
+        <summary><span class="q"><span class="q-text">Posso enviar o projeto no Promob Plus?</span></span><i aria-hidden="true">+</i></summary>
+        <div class="a">
+          <p><span class="pill p-nao">Não, só Studio Vita</span></p>
+          <p class="src">Treinamento Tatuapé · 09/10/2026</p>
+          <p class="lead">Não. A fábrica exige o Promob original, Studio Vita.</p>
+          <dl>
+            <div><dt>Por quê</dt><dd>Arquivos de outras versões não abrem no sistema da liberação, que refaz o projeto no original para responder pelas peças.</dd></div>
+            <div><dt>Como fazer</dt><dd>Envie o arquivo zipado original da medição sem abrir. Aberto antes, ele deixa de funcionar no original.</dd></div>
+          </dl>
+        </div>
+      </details>
+      <details>
+        <summary><span class="q"><span class="q-text">Com mão francesa ou grapa, o fundo enviado nem sempre é instalado. O que fazer?</span></span><i aria-hidden="true">+</i></summary>
+        <div class="a">
+          <p><span class="pill p-sim">Avise a coordenação</span></p>
+          <p class="src">Treinamento Tatuapé · 09/10/2026</p>
+          <p class="lead">O fundo deve ser instalado. Na maioria dos casos é possível, inclusive recortado em volta da tubulação.</p>
+          <dl>
+            <div><dt>Como fazer</dt><dd>Se o montador deixou de instalar sem motivo técnico, comunique o coordenador de montagem (Marcelo). Se houver motivo técnico, ele passa para a liberação padronizar.</dd></div>
+          </dl>
+        </div>
+      </details>
+      <details>
+        <summary><span class="q"><span class="q-text">A meia-cana ainda é enviada?</span></span><i aria-hidden="true">+</i></summary>
+        <div class="a">
+          <p><span class="pill p-sim">Só em dormitório</span></p>
+          <p class="src">Treinamento Tatuapé · 09/10/2026</p>
+          <p class="lead">Na cozinha, não. Ela fica só em dormitório e onde houver rodapé.</p>
+          <dl>
+            <div><dt>Por quê</dt><dd>As meias-canas foram retiradas dos projetos de cozinha. A padronização da instalação entre montadores é feita pela supervisão de montagem.</dd></div>
+          </dl>
+        </div>
+      </details>
+      <details>
+        <summary><span class="q"><span class="q-text">De onde sai o valor do comparativo?</span></span><i aria-hidden="true">+</i></summary>
+        <div class="a">
+          <p><span class="pill p-sim">O valor vem do sistema</span></p>
+          <p class="src">Treinamento Tatuapé · 09/10/2026</p>
+          <p class="lead">Do próprio UseCode. A liberação não calcula nem altera valores.</p>
+          <dl>
+            <div><dt>Por quê</dt><dd>O comparativo é proporcional à forma de pagamento: numa venda em 24x, a diferença vem parcelada, diferente da venda à vista.</dd></div>
+            <div><dt>Como fazer</dt><dd>Negocie a diferença com o cliente no ajuste inicial, sem esperar o comparativo. O acesso à aba de custos fica com a supervisão.</dd></div>
+          </dl>
+        </div>
+      </details>
+    </div>
+    </div>
+  </details>
+</section>
 
-<div class="footer">
-  <strong>By Arabi</strong> — Guia de Restrições Técnicas para o Comercial &nbsp;|&nbsp; Setor de Liberação Técnica &nbsp;|&nbsp; Elaborado com base em casos reais 2024–2026
-</div>
+<section class="band" id="vazio" hidden>
+  <p class="empty">Nenhuma dúvida encontrada para essa busca. Tente outra palavra ou fale com a liberação.</p>
+</section>
 
-</body>
-</html>
+<footer class="band band-c">
+  <p class="foot">By Arabi Planejados · Setor de Liberação Técnica. Baseado no Guia do Vendedor e nos casos reais de liberação de 2024 a 2026. Última atualização: 09/10/2026.</p>
+</footer>
+
+<script>
+(function(){
+  var input=document.getElementById('busca');
+  var result=document.getElementById('result');
+  var toggle=document.getElementById('toggle');
+  var empty=document.getElementById('vazio');
+  var groups=[].slice.call(document.querySelectorAll('[data-group]'));
+  var blocks=groups.map(function(g){return g.querySelector('details.block');});
+  var items=[].slice.call(document.querySelectorAll('.faq details'));
+  function norm(s){return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');}
+  var texts=items.map(function(d){return norm(d.textContent);});
+  function visibleItems(){return items.filter(function(d){return !d.hidden;});}
+  function visibleBlocks(){return blocks.filter(function(b){return !b.parentNode.hidden;});}
+  function counts(){
+    blocks.forEach(function(b){
+      var n=b.querySelectorAll('.faq details:not([hidden])').length;
+      b.querySelector('.block-count').textContent=n+(n===1?' dúvida':' dúvidas');
+    });
+  }
+  function filter(){
+    var q=norm(input.value.trim());
+    var n=0;
+    items.forEach(function(d,i){
+      var hit=!q||texts[i].indexOf(q)>-1;
+      d.hidden=!hit;
+      if(hit) n++;
+      d.open=!!q&&hit;
+    });
+    groups.forEach(function(g,i){
+      g.hidden=!g.querySelector('.faq details:not([hidden])');
+      blocks[i].open=!!q&&!g.hidden;
+    });
+    empty.hidden=n>0;
+    result.textContent=q?(n+(n===1?' dúvida encontrada':' dúvidas encontradas')):items.length+' dúvidas';
+    counts();
+    syncToggle();
+  }
+  function allOpen(){
+    var vb=visibleBlocks(),vi=visibleItems();
+    return vb.length>0&&vb.every(function(b){return b.open;})&&vi.every(function(d){return d.open;});
+  }
+  function syncToggle(){toggle.textContent=allOpen()?'Fechar todas':'Abrir todas';}
+  toggle.addEventListener('click',function(){
+    var open=!allOpen();
+    visibleBlocks().forEach(function(b){b.open=open;});
+    visibleItems().forEach(function(d){d.open=open;});
+    syncToggle();
+  });
+  blocks.concat(items).forEach(function(d){d.addEventListener('toggle',syncToggle);});
+  input.addEventListener('input',filter);
+  result.textContent=items.length+' dúvidas';
+  counts();
+})();
+</script>
+
+</body></html>
