@@ -143,6 +143,16 @@
   });
   blocks.concat(items).forEach(function(d){d.addEventListener('toggle',syncToggle);});
   input.addEventListener('input',filter);
+  // Enter na busca: fecha o teclado e desce até a primeira resposta
+  input.addEventListener('keydown',function(e){
+    if(e.key!=='Enter') return;
+    e.preventDefault();
+    input.blur();
+    var primeiro=document.querySelector('.faq details:not([hidden])');
+    if(!input.value.trim()||!primeiro) return;
+    var calmo=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+    setTimeout(function(){primeiro.scrollIntoView({behavior:calmo?'auto':'smooth',block:'start'});},250);
+  });
   result.textContent=items.length+' dúvidas';
   counts();
 })();
