@@ -67,7 +67,8 @@ Aplicar `atualizacao-faq-guia-do-vendedor.md`; criar/renomear seções; mudar de
 - [x] Task 7 — Implementar `?revisar` e testar com uma entrada temporária `revisar:true`, depois remover.
 - [x] Task 8 — Comparar `--dump-dom` novo x antigo: zero diferença nas 27 perguntas.
 - [x] Task 9 — Teste manual (lista da seção Verificação), claro e escuro, abrindo o arquivo direto.
-- [ ] Task 10 — Se o Everton quiser, copiar "Como adicionar" para o `CLAUDE.md`; sugerir texto de commit (sem executar).
+- [x] Task 10 — `CLAUDE.md` criado na raiz, com o "Como adicionar" (versão curta, em pt-BR).
+- [ ] Task 11 — **Última tarefa, só depois de aplicar o `atualizacao-faq-guia-do-vendedor.md`:** criar o `README.md` explicando, passo a passo e sem jargão, como mudar um texto, criar pergunta, criar seção e conferir se quebrou. Escrito para o Everton daqui a meses; sugerir texto de commit (sem executar).
 
 ## Desvios
 - Task 3: o CSS ganhou 4 linhas no fim, para a caixa `?revisar` (`.revisar`). As 112 linhas originais estão idênticas (conferido com diff).

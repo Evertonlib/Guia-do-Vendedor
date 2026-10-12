@@ -1,7 +1,7 @@
 window.SECOES = window.SECOES || [];
 window.SECOES.push({
-  id: "cozinha",
-  titulo: "Cozinha",
+  id: "cozinhas-banheiros-e-varandas",
+  titulo: "Cozinhas, banheiros e varandas",
   itens: [
     {
       tipo: "nao",
@@ -48,7 +48,15 @@ window.SECOES.push({
       pergunta: "Posso fechar o espaço do duto de ventilação ou do aquecedor?",
       resposta: "Não. A passagem do duto precisa ficar livre.",
       porque: "Obstruir o duto prejudica a ventilação e a manutenção do equipamento, com risco de mau funcionamento e problema de segurança.",
-      como: "Replaneje o fechamento do ambiente. Em móvel com aquecedor, envie sempre a planta hidráulica."
+      como: "Mantenha a região aberta sem o fechamento. Em móvel com aquecedor, envie sempre a planta hidráulica."
+    },
+    {
+      tipo: "sim",
+      etiqueta: "Pode, compra do comercial",
+      pergunta: "O cliente pode comprar a lixeira embutida por fora?",
+      resposta: "Pode, mas a compra por fora é responsabilidade do comercial.",
+      texto: "A liberação só compra itens da fábrica.",
+      como: "Envie o manual de instalação junto com a liberação, com um breve explicativo na checklist. A liberação confere se é compatível e ajusta o móvel."
     }
   ]
 });

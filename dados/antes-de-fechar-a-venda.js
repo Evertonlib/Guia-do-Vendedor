@@ -28,12 +28,26 @@ window.SECOES.push({
       como: "Consulte a liberação para saber qual é o modelo aprovado antes de vender."
     },
     {
+      tipo: "sim",
+      etiqueta: "Peça nova medição",
+      pergunta: "A parede dos móveis não foi medida. O que faço?",
+      resposta: "Peça nova medição.",
+      como: "O medidor volta para medir a parede e o projeto retorna à liberação."
+    },
+    {
       tipo: "nao",
-      etiqueta: "Não, uma cor por caixaria",
-      pergunta: "Posso misturar cores na mesma caixaria?",
-      resposta: "Não. A caixaria fica toda em uma cor.",
-      porque: "A mistura dá a impressão de despadronização e foge do padrão da empresa.",
-      como: "Troque a caixaria completa para a cor desejada, sem mesclar acabamentos."
+      etiqueta: "Não, venda móvel novo",
+      pergunta: "Posso vender para reaproveitar um móvel já montado?",
+      resposta: "Não, venda móvel novo.",
+      porque: "Na desmontagem podem quebrar peças que estejam coladas, e o montador pode cobrar o dobro de um projeto normal."
+    },
+    {
+      tipo: "medida",
+      etiqueta: "Depende do projeto",
+      pergunta: "A liberação consegue enxugar o projeto para reduzir o déficit?",
+      resposta: "Depende. O projeto já sai com o mínimo necessário.",
+      porque: "Os projetos já saem com o mínimo necessário para montagem mantendo a qualidade By arabi, por isso os pacotes de ferragem não podem ter componentes excluídos.",
+      como: "O vendedor pode alterar o layout junto com o cliente ou negociar a diferença de valor já no ajuste inicial."
     }
   ]
 });
