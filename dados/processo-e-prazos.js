@@ -61,6 +61,14 @@ window.SECOES.push({
       resposta: "Do próprio Usicode. A liberação não calcula nem altera valores.",
       porque: "O comparativo é proporcional à condição de pagamento: numa venda em 24x, a diferença vem parcelada, diferente da venda à vista.",
       como: "Negocie a diferença com o cliente no ajuste inicial, sem esperar o comparativo. O acesso à aba de valores fica com a supervisão."
+    },
+    {
+      tipo: "medida",
+      etiqueta: "Depende do projeto",
+      pergunta: "A liberação consegue enxugar o projeto para reduzir o déficit?",
+      resposta: "Depende. O projeto já sai com o mínimo necessário.",
+      porque: "Os projetos já saem com o mínimo necessário para montagem mantendo a qualidade By arabi, por isso os pacotes de ferragem não podem ter componentes excluídos.",
+      como: "O vendedor pode alterar o layout junto com o cliente ou negociar a diferença de valor já no ajuste inicial."
     }
   ]
 });

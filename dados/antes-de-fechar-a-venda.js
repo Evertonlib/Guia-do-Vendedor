@@ -40,14 +40,6 @@ window.SECOES.push({
       pergunta: "Posso vender para reaproveitar um móvel já montado?",
       resposta: "Não, venda móvel novo.",
       porque: "Na desmontagem podem quebrar peças que estejam coladas, e o montador pode cobrar o dobro de um projeto normal."
-    },
-    {
-      tipo: "medida",
-      etiqueta: "Depende do projeto",
-      pergunta: "A liberação consegue enxugar o projeto para reduzir o déficit?",
-      resposta: "Depende. O projeto já sai com o mínimo necessário.",
-      porque: "Os projetos já saem com o mínimo necessário para montagem mantendo a qualidade By arabi, por isso os pacotes de ferragem não podem ter componentes excluídos.",
-      como: "O vendedor pode alterar o layout junto com o cliente ou negociar a diferença de valor já no ajuste inicial."
     }
   ]
 });

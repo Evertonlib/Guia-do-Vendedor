@@ -16,7 +16,7 @@ window.SECOES.push({
       etiqueta: "Não, uma cor por caixaria",
       pergunta: "Posso misturar cores na mesma caixaria?",
       resposta: "Não. A caixaria fica toda em uma cor.",
-      porque: "A mistura dá a impressão de despadronização e foge do padrão da empresa.",
+      porque: "A mistura dá a impressão de despadronização e dificulta possíveis assisténcias técnicas.",
       como: "Troque a caixaria completa para a cor desejada, sem mesclar acabamentos."
     },
     {

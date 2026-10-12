@@ -12,10 +12,10 @@ window.SECOES.push({
     },
     {
       tipo: "medida",
-      etiqueta: "Mínimo 25 mm",
-      pergunta: "Qual o avanço mínimo de um painel?",
-      resposta: "25 mm.",
-      porque: "Com menos que isso o avanço não atende ao padrão técnico e o acabamento fica comprometido."
+      etiqueta: "Mínimo 70 mm",
+      pergunta: "Qual o avanço mínimo de um painel de home?",
+      resposta: "70 mm.",
+      porque: "Com menos que isso o avanço compromete a passagem dos fios dos aparelhos eletrônicos, além de riscos de colisão do corpo da tomada com a tv."
     },
     {
       tipo: "medida",
