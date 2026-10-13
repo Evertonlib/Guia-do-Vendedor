@@ -4,12 +4,12 @@ window.SECOES.push({
   titulo: "Cozinhas, banheiros e varandas",
   itens: [
     {
-      tipo: "nao",
-      etiqueta: "Não, use porta ou frente falsa",
+      tipo: "sim",
+      etiqueta: "Só cooktop de indução",
       pergunta: "Posso colocar gaveta embaixo do cooktop?",
-      resposta: "Não. Embaixo do cooktop vai porta basculante ou frente falsa.",
-      porque: "O cooktop tem um pino de gás profundo que ocupa o espaço da gaveta, com risco de dano e mau funcionamento dos dois.",
-      como: "Substitua a gaveta por porta basculante ou frente falsa."
+      resposta: "Só se o cooktop for de indução. Embaixo de cooktop a gás vai porta basculante ou frente falsa.",
+      porque: "O cooktop a gás tem um pino de gás profundo que ocupa o espaço da gaveta, com risco de dano e mau funcionamento dos dois. O de indução não tem esse pino.",
+      como: "Confirme o tipo de cooktop antes de vender. Se for a gás, substitua a gaveta por porta basculante ou frente falsa."
     },
     {
       tipo: "medida",

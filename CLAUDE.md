@@ -20,6 +20,14 @@ FAQ em sanfona para vendedores (o que pode e o que não pode vender, e por quê)
 
 Campos da pergunta: `tipo` (`sim`, `medida`, `ciencia` ou `nao`), `etiqueta`, `pergunta`, `resposta` (obrigatórios); `texto`, `porque`, `como`, `exemplo`, `origem`, `atualizado: true`, `revisar: true` (opcionais — campo ausente = linha não aparece).
 
+**Selos (`tipo`) — escolha pela cor, não só pelo sentido:**
+
+- `sim` (verde): pode, ou pode sob condição. Ex.: "Só cooktop de indução".
+- `nao` (vermelho): não pode ou há bloqueio; etiqueta começa com "Não, ..." e traz a alternativa.
+- `ciencia` (amarelo): pode, mas só com ciência do cliente, sem garantia ou com aviso.
+- `medida` (cinza): neutro — números/faixas e também respostas informativas ("de onde sai...", "peça à liberação").
+- A etiqueta nunca contradiz a resposta (não pôr "Sim" em resposta que começa com "Não").
+
 ## Armadilhas
 
 - Faltou vírgula, aspas ou chave num `dados/*.js` → aquela seção some da página (as outras continuam). Confira com `node --check dados/arquivo.js`.
@@ -37,4 +45,4 @@ Campos da pergunta: `tipo` (`sim`, `medida`, `ciencia` ou `nao`), `etiqueta`, `p
 
 ## Fluxo
 
-Mudanças de estrutura seguem PRD → Spec → implementação. Trabalhar em branch; só a `main` publica. Commit só quando o Everton pedir.
+Mudanças de estrutura seguem PRD → Spec → implementação. Pode trabalhar direto na `main` (é ela que publica). Commit só quando o Everton pedir.

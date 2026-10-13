@@ -54,7 +54,7 @@ window.SECOES.push({
       exemplo: "Uma cozinha paga à vista deu diferença de R$ 500. A mesma cozinha em 24x daria cerca de R$ 1.200."
     },
     {
-      tipo: "sim",
+      tipo: "medida",
       etiqueta: "O valor vem do sistema",
       pergunta: "De onde sai o valor do comparativo?",
       origem: "Treinamento Tatuapé · 09/10/2026",

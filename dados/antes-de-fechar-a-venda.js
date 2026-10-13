@@ -21,14 +21,6 @@ window.SECOES.push({
     },
     {
       tipo: "nao",
-      etiqueta: "Não, use o modelo aprovado",
-      pergunta: "Posso vender uma cristaleira personalizada?",
-      resposta: "Só no modelo padrão aprovado.",
-      porque: "Cristaleiras fora do modelo não atendem aos critérios técnicos de fabricação e estabilidade.",
-      como: "Consulte a liberação para saber qual é o modelo aprovado antes de vender."
-    },
-    {
-      tipo: "sim",
       etiqueta: "Peça nova medição",
       pergunta: "A parede dos móveis não foi medida. O que faço?",
       resposta: "Peça nova medição.",

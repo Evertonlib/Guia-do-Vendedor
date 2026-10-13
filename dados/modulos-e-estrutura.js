@@ -29,8 +29,8 @@ window.SECOES.push({
       como: "Use módulo de canto reto ou consulte a liberação para uma alternativa compatível."
     },
     {
-      tipo: "sim",
-      etiqueta: "Sim, com painel de fundo",
+      tipo: "nao",
+      etiqueta: "Não, use painel de fundo",
       pergunta: "Posso instalar ripado direto na parede?",
       resposta: "Não direto na parede. O ripado vai sempre sobre um painel estrutural de fundo.",
       porque: "O ripado precisa de um painel de apoio para ficar bem fixado. Direto na parede, mesmo com tinta especial, não há garantia de estabilidade e durabilidade.",
@@ -45,7 +45,7 @@ window.SECOES.push({
       como: "Respeite a altura mínima ou use outra solução de abertura aprovada."
     },
     {
-      tipo: "sim",
+      tipo: "ciencia",
       etiqueta: "Avise a coordenação",
       pergunta: "Com mão francesa ou grapa, o fundo enviado nem sempre é instalado. O que fazer?",
       origem: "Treinamento Tatuapé · 09/10/2026",
@@ -60,7 +60,7 @@ window.SECOES.push({
       como: "Nas cores que só existem em 18 mm, use tampo especial duplado de 36 mm na cor."
     },
     {
-      tipo: "sim",
+      tipo: "medida",
       etiqueta: "Peça à liberação",
       pergunta: "Como vender um canto alemão?",
       resposta: "Peça um modelo à liberação.",
